@@ -38,20 +38,20 @@ public class VariableNamesTheme {
         System.out.println("Переменная с символом '&' = " + charAnd);
     
         // код ошибки
-        String mistakeNumber = "123ase34Es42:404";
-        System.out.println("Код ошибки = " + mistakeNumber);
+        String error = "123ase34Es42:404";
+        System.out.println("Код ошибки = " + error);
     
         // тип сообщения
         String messageType = "int";
         System.out.println("Тип сообщения = " + messageType);
 
         // число нулей
-        int zerroCount = 12;
-        System.out.println("Количество нулей = " + zerroCount);
+        int zeroCount = 12;
+        System.out.println("Количество нулей = " + zeroCount);
     
         // уникальное число
-        int unickDigit = 0;
-        System.out.println("Уникальное число = " + unickDigit);
+        int uniqueDigit = 0;
+        System.out.println("Уникальное число = " + uniqueDigit);
     
         // случайное число
         int randomNumber = (int) (Math.random() * 10) + 1;
@@ -90,8 +90,8 @@ public class VariableNamesTheme {
         System.out.println("Имя работника месяца : " + employeeFullName);
     
         // название электронной книги
-        String bookName = "Война и мир";
-        System.out.println("Название электронной книги: " + bookName);
+        String ebookTitle = "Война и мир";
+        System.out.println("Название электронной книги: " + ebookTitle);
     
         // размер
         int size = 45;
@@ -102,8 +102,8 @@ public class VariableNamesTheme {
         System.out.println("Вместимость = " + capacity);
     
         // счетчик
-        int iterationCounte = 1;
-        System.out.println("Счётчик = " + iterationCounte);
+        int counter = 1;
+        System.out.println("Счётчик = " + counter);
     
         // путь до файла
         String filePath = "D://LessonTopJava//Lesson_1";
@@ -118,39 +118,38 @@ public class VariableNamesTheme {
 
         // сотни равны?
         boolean areHundredsEqual = false;
+        System.out.println("Сотни равны? " + areHundredsEqual);
 
         // компьютер включен?
         boolean computerIsOn = true;
+        System.out.println("Компьютер включен? " + computerIsOn);
 
         // есть равные цифры?
         boolean doDigitsMatch = true;
+        System.out.println("Есть равные цифры? " + doDigitsMatch);
 
         // создано?
         boolean creationStatus = true;
+        System.out.println("Создано? " + creationStatus);
 
         // пустое?
         boolean isEmpty = false;
+        System.out.println("Пустое? " + isEmpty);
     
         // активное?
         boolean isActive = true;
+        System.out.println("Активное? " + isActive);
     
         // новое?
         boolean isRecentlyCreated = true;
+        System.out.println("Новое? " + isRecentlyCreated);
 
         // электронная почта действительная?
         boolean isValidEmai = true;
+        System.out.println("Действительная электронная почта? " + isValidEmai);
 
         // имеются уникальные строки?
         boolean linesAreUnique = true;
-
-        System.out.println("Сотни равны? " + areHundredsEqual);
-        System.out.println("Компьютер включен? " + computerIsOn);
-        System.out.println("Есть равные цифры? " + doDigitsMatch);
-        System.out.println("Создано? " + creationStatus);
-        System.out.println("Пустое? " + isEmpty);
-        System.out.println("Активное? " + isActive);
-        System.out.println("Новое? " + isRecentlyCreated);
-        System.out.println("Действительная электронная почта? " + isValidEmai);
         System.out.println("Есть уникальные строки? " + linesAreUnique + "\n");
 
         // 3 блок
@@ -158,29 +157,30 @@ public class VariableNamesTheme {
 
         // старый universally unique identifier
         String oldUuid = "UUID";
+        System.out.println("Universally unique identifier - " + oldUuid);
 
         // производитель оперативной памяти
         String ramMaker = "Nvidia";
+        System.out.println("Производитель оперативной памяти - " + ramMaker);
 
         // емкость жесткого диска
-        int hardDiskCapacity = 1024;
+        int hddCapacity = 1024;
+        System.out.println("Емкость жесткого диска = " + hddCapacity);
 
         // протокол передачи гипертекста
         String http = "HyperTextTransferProtocol";
+        System.out.println("Протокол передачи гипертекста - " + http);
 
         // сокращенный uniform resource locator
         String url = "web address";
+        System.out.println("Унифицированный указатель ресурса - " + url);
 
         // новый идентификатор клиента
-        String clientNewId = "id нового клиента";
+        String newClientId = "id нового клиента";
+        System.out.println("Новый идентификатор клиента - " + newClientId);    
 
         // american standart code for information interchange 
         String ascii = "Стандарт кодирования";
-
-        System.out.printf("universally unique identifier - " + "%s\n" + "Производитель оперативной памяти - " + 
-                "%s\n" + "Емкость жесткого диска = " + "%d\n" + "Протокол передачи гипертекста - " + "%s\n" + 
-                "Сокращенный uniform resource locator - " + "%s\n" + "Новый идентификатор клиента - " + "%s\n" + 
-                "american standart code for information interchange - " + "%s",
-                 oldUuid, ramMaker, hardDiskCapacity, http, url, clientNewId, ascii);
+        System.out.println("American standart code for information interchange - " + ascii);
     }
 }
