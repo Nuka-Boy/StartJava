@@ -38,8 +38,8 @@ public class VariableNamesTheme {
         System.out.println("Переменная с символом '&' = " + charAnd);
     
         // код ошибки
-        String error = "123ase34Es42:404";
-        System.out.println("Код ошибки = " + error);
+        String errorCode = "123ase34Es42:404";
+        System.out.println("Код ошибки = " + errorCode);
     
         // тип сообщения
         String messageType = "int";
@@ -117,28 +117,28 @@ public class VariableNamesTheme {
         System.out.println("2) Boolean - переменные");
 
         // сотни равны?
-        boolean areHundredsEqual = false;
-        System.out.println("Сотни равны? " + areHundredsEqual);
+        boolean isHundredsEqual = false;
+        System.out.println("Сотни равны? " + isHundredsEqual);
 
         // компьютер включен?
-        boolean computerIsOn = true;
-        System.out.println("Компьютер включен? " + computerIsOn);
+        boolean isComputerOn = true;
+        System.out.println("Компьютер включен? " + isComputerOn);
 
         // есть равные цифры?
-        boolean doDigitsMatch = true;
-        System.out.println("Есть равные цифры? " + doDigitsMatch);
+        boolean hasEqualDigits = true;
+        System.out.println("Есть равные цифры? " + hasEqualDigits);
 
         // создано?
-        boolean creationStatus = true;
-        System.out.println("Создано? " + creationStatus);
+        boolean isCreated = true;
+        System.out.println("Создано? " + isCreated);
 
         // пустое?
         boolean isEmpty = false;
         System.out.println("Пустое? " + isEmpty);
     
         // активное?
-        boolean isActive = true;
-        System.out.println("Активное? " + isActive);
+        boolean active = true;
+        System.out.println("Активное? " + active);
     
         // новое?
         boolean isRecentlyCreated = true;
@@ -149,8 +149,8 @@ public class VariableNamesTheme {
         System.out.println("Действительная электронная почта? " + isValidEmai);
 
         // имеются уникальные строки?
-        boolean linesAreUnique = true;
-        System.out.println("Есть уникальные строки? " + linesAreUnique + "\n");
+        boolean isUniqueLine = true;
+        System.out.println("Есть уникальные строки? " + isUniqueLine + "\n");
 
         // 3 блок
         System.out.println("3) Аббревиатуры");
@@ -172,8 +172,8 @@ public class VariableNamesTheme {
         System.out.println("Протокол передачи гипертекста - " + http);
 
         // сокращенный uniform resource locator
-        String url = "web address";
-        System.out.println("Унифицированный указатель ресурса - " + url);
+        String shortUrl = "web address";
+        System.out.println("Унифицированный указатель ресурса - " + shortUrl);
 
         // новый идентификатор клиента
         String newClientId = "id нового клиента";
