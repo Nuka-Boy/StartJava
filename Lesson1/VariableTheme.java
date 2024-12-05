@@ -32,9 +32,9 @@ public class VariableTheme {
         // цена ручки и книги в рублях
         BigDecimal penPrice = new BigDecimal("105.5");
         BigDecimal bookPrice = new BigDecimal("235.83");
-        BigDecimal percentDiscount = new BigDecimal("0.11");
-        BigDecimal totalPenDiscount = penPrice.multiply(percentDiscount).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal totalBookDiscount = bookPrice.multiply(percentDiscount).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal discountPercent = new BigDecimal("0.11");
+        BigDecimal totalPenDiscount = penPrice.multiply(discountPercent).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal totalBookDiscount = bookPrice.multiply(discountPercent).setScale(2, RoundingMode.HALF_UP);
         System.out.println("Действует скидка 11%"); 
         System.out.println("Стоимость товаров без скидки составляет:\n" + "книга - " + bookPrice +
                 " RUB\n" + "ручка - " + penPrice + " RUB");
@@ -53,28 +53,28 @@ public class VariableTheme {
         System.out.println("4. Вывод min и max значений целых числовых типов");
         byte byteMaxValue = Byte.MAX_VALUE;
         System.out.println("Максимальное значение в переменной типа byte = " + byteMaxValue);
-        System.out.println("После инкремента = " + (++byteMaxValue) + "\n" + "После декремента = " +
-                 (--byteMaxValue));
+        System.out.println("После инкремента = " + (++byteMaxValue) + "\n" + 
+                "После декремента = " + (--byteMaxValue));
 
-        char charMaxValue = Character.MAX_VALUE;
+        int charMaxValue = Character.MAX_VALUE;
         System.out.println("Максимальное число в переменной типа char = " + charMaxValue);
-        System.out.println("После инкремента = " + (++charMaxValue) + "\n" + "После декремента = " +
-                 (--charMaxValue));
+        System.out.println("После инкремента = " + (++charMaxValue) + "\n" + 
+                "После декремента = " + (--charMaxValue));
 
         short shortMaxValue = Short.MAX_VALUE;
         System.out.println("Максимальное число в переменной типа short = " + shortMaxValue);
-        System.out.println("После инкремента = " + (++shortMaxValue) + "\n" + "После декремента = " +
-                 (--shortMaxValue));
+        System.out.println("После инкремента = " + (++shortMaxValue) + "\n" + 
+                "После декремента = " + (--shortMaxValue));
 
         int intMaxValue = Integer.MAX_VALUE;
         System.out.println("Максимальное число в переменной типа int = " + intMaxValue);
-        System.out.println("После инкремента = " + (++intMaxValue) + "\n" + "После декремента = " +
-                 (--intMaxValue));
+        System.out.println("После инкремента = " + (++intMaxValue) + "\n" + 
+                "После декремента = " + (--intMaxValue));
 
         long longMaxValue = Long.MAX_VALUE;
         System.out.println("Максимальное число в переменной типа long = " + longMaxValue);
-        System.out.println("После инкремента = " + (++longMaxValue) + "\n" + "После декремента = " +
-                 (--longMaxValue) + "\n");
+        System.out.println("После инкремента = " + (++longMaxValue) + "\n" + 
+                "После декремента = " + (--longMaxValue) + "\n");
 
         System.out.println("5. Перестановка значений переменных");
         int a = 2;
@@ -122,23 +122,23 @@ public class VariableTheme {
         System.out.println("    " + slash + backslash + " " + "\n" + "   " + slash + 
                 "  " + backslash + " " + "\n" + "  " + slash + underscore + leftParenthesis + " " + 
                 rightParentesis + backslash + " " + "\n" + " " + slash + "      " + backslash + " " + 
-                "\n" + slash + underscore + underscore + underscore + underscore + underscore + backslash + 
-                underscore + underscore + backslash + "\n");
+                "\n" + slash + underscore + underscore + underscore + underscore + underscore + 
+                backslash + underscore + underscore + backslash + "\n");
 
         System.out.println("8. Манипуляции с сотнями, десятками и единицами числа");
         int number = 123;
         System.out.println("Число " + number + " содержит:");
         int hundreds = number / 100;
         int tens = (number % 100) / 10;
-        int units = number % 10;
+        int ones = number % 10;
 
         System.out.println("  сотен - " + hundreds);
         System.out.println("  десятков - " + tens);
-        System.out.println("  единиц - " + units);
+        System.out.println("  единиц - " + ones);
 
-        int digitsSum = hundreds + tens + units;
+        int digitsSum = hundreds + tens + ones;
         System.out.println("Сумма разрядов = " + digitsSum);
-        int digitsProduct = hundreds * tens * units;
+        int digitsProduct = hundreds * tens * ones;
         System.out.println("Произведение разрядов = " + digitsProduct + "\n");
 
         System.out.println("9. Перевод секунд в часы, минуты и секунды");
