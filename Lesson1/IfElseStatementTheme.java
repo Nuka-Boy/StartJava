@@ -112,5 +112,55 @@ public class IfElseStatementTheme {
         System.out.println("Сумма вклада = " + deposit + " RUB" + "\n" + 
                 "Сумма начисленного процента = " + percent.setScale(2, RoundingMode.HALF_UP) + " RUB" + 
                 "\n" + "Итоговая сумма = " + result.setScale(2, RoundingMode.HALF_UP) + " RUB");
+
+        System.out.println("\n7. Определение оценки по предметам");
+        int markHistory = 0;
+        int historyPercent = 59;
+        if (historyPercent <= 60) {
+            markHistory = 2; 
+        } 
+        if (historyPercent > 60) {
+            markHistory = 3;
+        } 
+        if (historyPercent > 73) {
+            markHistory = 4;
+        } 
+        if (historyPercent > 91) {
+            markHistory = 5;
+        }
+        System.out.println("История: " + markHistory);
+        int programmingPercent = 92;
+        int mrakProgramming = 0;
+        if (programmingPercent <= 60) {
+            mrakProgramming = 2;
+        } 
+        if (programmingPercent > 60) {
+            mrakProgramming = 3;
+        } 
+        if (programmingPercent > 73) {
+            mrakProgramming = 4;
+        } 
+        if (programmingPercent > 91) {
+            mrakProgramming = 5;
+        }
+        System.out.println("Программирование: " + mrakProgramming);
+        double averageMark = (markHistory + mrakProgramming) / 2;
+        double averagePercent = (historyPercent + programmingPercent) / 2;
+        System.out.println("Средний балл по предметам: " + averageMark);
+        System.out.println("Средние проценты по предметам: " + averagePercent);
+
+        System.out.println("\n8. Расчет годовой прибыли");
+        BigDecimal saleInMonth = new BigDecimal("13025.233");
+        // аренда помещения в месяц
+        BigDecimal rentCost = new BigDecimal("5123.018");
+        BigDecimal priceCost = new BigDecimal("9001.729");
+        BigDecimal monthNumbers = new BigDecimal("12");
+        BigDecimal annualProfit = ((saleInMonth.multiply(monthNumbers))
+                .subtract(priceCost.multiply(monthNumbers))).subtract(rentCost.multiply(monthNumbers));
+        if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
+            System.out.println("Прибыль за год: " + annualProfit.setScale(2, RoundingMode.HALF_UP) + " руб.");
+        } else if (annualProfit.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Прибыль за год: " + annualProfit.setScale(2, RoundingMode.HALF_UP) + " руб.");
+        }
     }
 }
