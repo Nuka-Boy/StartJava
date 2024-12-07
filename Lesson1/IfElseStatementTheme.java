@@ -36,93 +36,65 @@ public class IfElseStatementTheme {
         int a = 321;
         int b = 123;
         if (a > b) {
-            System.out.println("Число a = " + a + ", а число b = " + b + ". Число а > b");
+            System.out.println(a + " > " + b);
         } else if (a < b) {
-            System.out.println("Число a = " + a + ", а число b = " + b + ". Число а < b");
+            System.out.println(a + " < " + b);
         } else {
-            System.out.println("Число a = " + a + ", а число b = " + b + ". Числа равны");
+            System.out.println("Числа равны");
         }
 
         System.out.println("\n3. Проверка числа");
-        int x = -90;
-        if (x > 0) {
-            if (x % 2 == 0) {
-                System.out.println(x + " является положительным и четным");
-            } else {
-                System.out.println(x + " является положительным и нечетным");
-            }
-        } else if (x < 0) {
-            if (x % 2 == 0) {
-                System.out.println(x + " является отрицательным и четным");
-            } else {
-                System.out.println(x + " является отрицательным и нечетным");
-            }
+        int digit = -90;
+        if (digit > 0) {
+            System.out.printf("%d является положительным%s", digit, 
+                    digit % 2 == 0 ? " и четным" : " и нечетным");
+        } else if (digit < 0) {
+            System.out.printf("%d является отрицательным%s", digit, 
+                    digit % 2 == 0 ? " и четным" : " и нечетным");
         } else {
-            System.out.println(x + " = 0");
+            System.out.println(digit + " = 0");
         }
 
-        System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int y = 123;
-        int z = 223;
-        int repeatsNumber = 0;
-        int categories = 0;
-        if ((y / 100) == (z / 100) || (y / 10 % 10) == (z / 10 % 10) || (y % 10) == (z % 10)) {
-            System.out.println("Исходные числа: y = " + y + ", z = " + z);
-            if ((y / 100) == (z / 100)) {
-                repeatsNumber += 2;
-                categories += 1;
-                if ((y / 10 % 10) == (z / 10 % 10)) {
-                    repeatsNumber += 2;
-                    categories += 1;
-                    if ((y % 10) == (z % 10)) {
-                        repeatsNumber += 2;
-                        categories += 1;
-                    }
-                } else if ((y / 10 % 10) != (z / 10 % 10)) {
-                    if ((y % 10) == (z % 10)) {
-                        repeatsNumber += 2;
-                        categories += 1; 
-                    }
-                }
-            } else if ((y / 100) != (z / 100)) {
-                if ((y / 10 % 10) == (z / 10 % 10)) {
-                    repeatsNumber += 2;
-                    categories += 1;
-                    if ((y % 10) == (z % 10)) {
-                        repeatsNumber += 2;
-                        categories += 1;
-                    }
-                } else if ((y / 10 % 10) != (z / 10 % 10)) {
-                    if ((y % 10) == (z % 10)) {
-                        repeatsNumber += 2;
-                        categories += 1;
-                    } else if ((y % 10) != (z % 10)) {
-                        repeatsNumber += 2;
-                        categories += 1;
-                    }
-                }
-            }
-            System.out.println("Одинаковых цифр = " + repeatsNumber);
-            System.out.println("Количество повторяющихся разрядов = " + categories);
+        System.out.println("\n\n4. Поиск одинаковых цифр в числах");
+        int firstDigit = 123;
+        int secondDigit = 223;
+        System.out.println("Исходные числа: y = " + firstDigit + ", z = " + secondDigit);
+
+        int oneY = firstDigit % 10;
+        int oneZ = secondDigit % 10;
+        int tenY = firstDigit % 100 / 10;
+        int tenZ = secondDigit % 100 / 10;
+        int thousandY = firstDigit / 100;
+        int thousandZ = secondDigit / 100;
+
+        if (!(oneY == oneZ) && !(tenY == tenZ) && !(thousandY == thousandZ)) {
+            System.out.println("Равных чисел нет");
+            return;
         } else {
-            System.out.println("Равных цифр нет");
+            if (oneY == oneZ) {
+                System.out.println("В 1 разряде равны числа " + oneY);
+            }
+            if (tenY == tenZ) {
+                System.out.println("Во 2 разряде равны числа " + tenY);
+            }
+            if (thousandY == thousandZ) {
+                System.out.println("В 3 разряде равны числа " + thousandY);
+            }
         }
 
         System.out.println("\n5. Определение символа по его коду");
         char myChar = '\u0031';
-        if (Character.isLetter(myChar)) {
-            if (Character.isUpperCase(myChar)) {
-                System.out.println(myChar + " - большая буква");
-            } else {
-                System.out.println(myChar + " - маленькая буква");
-            }
-        } else if (Character.isDigit(myChar)) {
-            System.out.println(myChar + " - цифра");
+        if (myChar >= 'A' && myChar <= 'Z') {
+            System.out.printf("%c - большая буква", myChar);
+        } else if (myChar >= 'a' && myChar <= 'z') {
+            System.out.printf("%c - маленькая буква", myChar);
+        } else if (myChar >= '0' && myChar <= '9') {
+            System.out.printf("%c - цифра", myChar);
         } else {
-            System.out.println(myChar + " - ни буква ни цифра");
+            System.out.print(myChar + " - ни буква, ни цифра");
         }
 
-        System.out.println("\n6. Подсчет начисленных банком %");
+        System.out.println("\n\n6. Подсчет начисленных банком %");
         BigDecimal deposit = new BigDecimal("321123.59");
         BigDecimal firstCompareNumber = new BigDecimal("100000");
         BigDecimal secondCompareNumber = new BigDecimal("300000");
