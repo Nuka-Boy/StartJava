@@ -50,7 +50,7 @@ public class IfElseStatementTheme {
         } else {
             if (originNumber < 0) { 
                 System.out.print(originNumber + " является отрицательным и ");
-            } else if (originNumber > 0) {
+            } else {
                 System.out.print(originNumber + " является положительным и ");
             }
             if (originNumber % 2 == 0) {
@@ -63,24 +63,24 @@ public class IfElseStatementTheme {
         System.out.println("\n\n4. Поиск одинаковых цифр в числах");
         int x = 123;
         int y = 223;
-        System.out.println("Исходные числа: y = " + x + ", z = " + y);
-        int onesX = x % 10;
-        int onesY = y % 10;
-        int tensX = x % 100 / 10;
-        int tensY = y % 100 / 10;
-        int hundredsX = x / 100;
-        int hundredsY = y / 100;
-        if (!(onesX == onesY) && !(tensX == tensY) && !(hundredsX == hundredsY)) {
-            System.out.println("Равных чисел нет");
+        System.out.println("Исходные числа: x = " + x + ", y = " + y);
+        int xOnes = x % 10;
+        int yOnes = y % 10;
+        int xTens = x % 100 / 10;
+        int yTens = y % 100 / 10;
+        int xHundreds = x / 100;
+        int yHundreds = y / 100;
+        if (!(xOnes == yOnes) && !(xTens == yTens) && !(xHundreds == yHundreds)) {
+            System.out.println("Числа " + x + " и " + y + " не имеют равных разрядов");
         } else {
-            if (onesX == onesY) {
-                System.out.println("В 1 разряде равны числа " + onesX);
+            if (xOnes == yOnes) {
+                System.out.println("В 1 разряде равны числа " + xOnes);
             }
-            if (tensX == tensY) {
-                System.out.println("Во 2 разряде равны числа " + tensX);
+            if (xTens == yTens) {
+                System.out.println("Во 2 разряде равны числа " + xTens);
             }
-            if (hundredsX == hundredsY) {
-                System.out.println("В 3 разряде равны числа " + hundredsX);
+            if (xHundreds == yHundreds) {
+                System.out.println("В 3 разряде равны числа " + xHundreds);
             }
         }
 
@@ -97,19 +97,19 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n\n6. Подсчет начисленных банком %");
-        BigDecimal deposit = new BigDecimal("321123.59");
-        int compareWithFirst = deposit.compareTo(BigDecimal.valueOf(100_000));
-        int compareWithSecond = deposit.compareTo(BigDecimal.valueOf(300_000));
-        BigDecimal percent = BigDecimal.valueOf(0.1).multiply(deposit);
-        if (compareWithFirst < 0) {
-            percent = BigDecimal.valueOf(0.05).multiply(deposit); 
-        } else if (compareWithFirst > 0 && compareWithSecond < 0) {
-            percent = BigDecimal.valueOf(0.07).multiply(deposit);
+        BigDecimal deposit = new BigDecimal("301123.59");
+        int compareWithHundred = deposit.compareTo(BigDecimal.valueOf(100_000));
+        int compareWithThreeHundred = deposit.compareTo(BigDecimal.valueOf(300_000));
+        BigDecimal interest = new BigDecimal("0.1").multiply(deposit);
+        if (compareWithHundred < 0) {
+            interest = new BigDecimal("0.05").multiply(deposit); 
+        } else if (compareWithThreeHundred < 0) {
+            interest = new BigDecimal("0.07").multiply(deposit);
         } 
-        BigDecimal result = deposit.add(percent);
+        BigDecimal finalSum = deposit.add(interest);
         System.out.println("Сумма вклада = " + deposit + " RUB" + "\n" + 
-                "Сумма начисленного процента = " + percent.setScale(2, RoundingMode.HALF_UP) + " RUB" + 
-                "\n" + "Итоговая сумма = " + result.setScale(2, RoundingMode.HALF_UP) + " RUB");
+                "Сумма начисленного процента = " + interest.setScale(2, RoundingMode.HALF_UP) + " RUB" + 
+                "\n" + "Итоговая сумма = " + finalSum.setScale(2, RoundingMode.HALF_UP) + " RUB");
 
         System.out.println("\n7. Определение оценки по предметам");
         double historyMark = 5;
@@ -142,12 +142,11 @@ public class IfElseStatementTheme {
         BigDecimal rentCost = new BigDecimal("5123.018");
         BigDecimal priceCost = new BigDecimal("9001.729");
         BigDecimal monthNumbers = BigDecimal.valueOf(12);
-        BigDecimal annualProfit = (((saleInMonth.multiply(monthNumbers))
-                .subtract(priceCost.multiply(monthNumbers)))
-                .subtract(rentCost.multiply(monthNumbers))).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal annualProfit = ((saleInMonth.subtract(priceCost).subtract(rentCost))
+                .multiply(monthNumbers)).setScale(2, RoundingMode.HALF_UP);
         if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
             System.out.println("Прибыль за год: +" + annualProfit + " руб.");
-        } else if (annualProfit.compareTo(BigDecimal.ZERO) < 0) {
+        } else {
             System.out.println("Прибыль за год: " + annualProfit + " руб.");
         }
     }
