@@ -61,5 +61,30 @@ public class CyclesTheme {
         System.out.println("\n" + sumDigits);
 
         System.out.println("\n4. Вывод чисел в несколько строк");
+        for(int z = 1; z < 30; z++) {
+            if (z % 2 != 0) {
+                System.out.printf("%d", z);
+            } else {
+                continue;
+            }
+            int zerosCount = 0;
+            if (z >= 10 && z < 100) {
+                zerosCount = 3;
+            } else {
+                zerosCount = 4;
+            }
+
+            for (int j = 0; j < zerosCount; j++) {
+                if (zerosCount == 3 && j == 0) {
+                    System.out.print("  ");}
+                    else if (zerosCount == 3){
+                        System.out.print(" ");
+                    }
+                    else {
+                        System.out.print(" ");
+                    }
+                System.out.print(0); 
+            } System.out.println();
+        }   
     }
 }
