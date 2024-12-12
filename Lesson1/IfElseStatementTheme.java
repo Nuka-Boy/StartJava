@@ -61,26 +61,26 @@ public class IfElseStatementTheme {
         }
   
         System.out.println("\n\n4. Поиск одинаковых цифр в числах");
-        int x = 123;
-        int y = 223;
-        System.out.println("Исходные числа: x = " + x + ", y = " + y);
-        int xOnes = x % 10;
-        int yOnes = y % 10;
-        int xTens = x % 100 / 10;
-        int yTens = y % 100 / 10;
-        int xHundreds = x / 100;
-        int yHundreds = y / 100;
-        if (!(xOnes == yOnes) && !(xTens == yTens) && !(xHundreds == yHundreds)) {
-            System.out.println("Числа " + x + " и " + y + " не имеют равных разрядов");
+        int num1 = 123;
+        int num2 = 223;
+        System.out.println("Исходные числа: num1 = " + num1 + ", num2 = " + num2);
+        int num1Ones = num1 % 10;
+        int num2Ones = num2 % 10;
+        int num1Tens = num1 % 100 / 10;
+        int num2Tens = num2 % 100 / 10;
+        int num1Hundreds = num1 / 100;
+        int num2Hundreds = num2 / 100;
+        if (!(num1Ones == num2Ones) && !(num1Tens == num2Tens) && !(num1Hundreds == num2Hundreds)) {
+            System.out.println("Числа " + num1 + " и " + num2 + " не имеют равных разрядов");
         } else {
-            if (xOnes == yOnes) {
-                System.out.println("В 1 разряде равны числа " + xOnes);
+            if (num1Ones == num2Ones) {
+                System.out.println("В 1 разряде равны числа " +num1Ones);
             }
-            if (xTens == yTens) {
-                System.out.println("Во 2 разряде равны числа " + xTens);
+            if (num1Tens == num2Tens) {
+                System.out.println("Во 2 разряде равны числа " + num1Tens);
             }
-            if (xHundreds == yHundreds) {
-                System.out.println("В 3 разряде равны числа " + xHundreds);
+            if (num1Hundreds == num2Hundreds) {
+                System.out.println("В 3 разряде равны числа " + num1Hundreds);
             }
         }
 
@@ -98,12 +98,12 @@ public class IfElseStatementTheme {
 
         System.out.println("\n\n6. Подсчет начисленных банком %");
         BigDecimal deposit = new BigDecimal("301123.59");
-        int compareWithHundred = deposit.compareTo(BigDecimal.valueOf(100_000));
-        int compareWithThreeHundred = deposit.compareTo(BigDecimal.valueOf(300_000));
+        int hundredComparison = deposit.compareTo(BigDecimal.valueOf(100_000));
+        int threeHundredComparison = deposit.compareTo(BigDecimal.valueOf(300_000));
         BigDecimal interest = new BigDecimal("0.1").multiply(deposit);
-        if (compareWithHundred < 0) {
+        if (hundredComparison < 0) {
             interest = new BigDecimal("0.05").multiply(deposit); 
-        } else if (compareWithThreeHundred < 0) {
+        } else if (threeHundredComparison < 0) {
             interest = new BigDecimal("0.07").multiply(deposit);
         } 
         BigDecimal finalSum = deposit.add(interest);
