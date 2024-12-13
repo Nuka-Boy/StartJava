@@ -74,7 +74,7 @@ public class IfElseStatementTheme {
             System.out.println("Числа " + num1 + " и " + num2 + " не имеют равных разрядов");
         } else {
             if (num1Ones == num2Ones) {
-                System.out.println("В 1 разряде равны числа " +num1Ones);
+                System.out.println("В 1 разряде равны числа " + num1Ones);
             }
             if (num1Tens == num2Tens) {
                 System.out.println("Во 2 разряде равны числа " + num1Tens);
