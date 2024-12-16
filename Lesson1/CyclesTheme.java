@@ -17,9 +17,9 @@ public class CyclesTheme {
         System.out.print("] сумма четных чисел = " + evenNumbersSum + " а нечетных = " + oddNumbersSum);
     
         System.out.println("\n\n2. Вывод чисел между min и max в порядке убывания");
-        int number1 = 10;
+        int number1 = -1;
         int number2 = 5;
-        int number3 = -1;
+        int number3 = 10;
         int maxValue = number1;
         int minValue = number1;
         if (number2 < minValue) {
@@ -31,8 +31,8 @@ public class CyclesTheme {
         if (number2 > maxValue) {
             maxValue = number2;
         }
-        if (number1 > maxValue) {
-            maxValue = number1;
+        if (number3 > maxValue) {
+            maxValue = number3;
         }
         System.out.print("(");
         for (int i = maxValue - 1; i >= minValue + 1; i--) {
@@ -87,26 +87,26 @@ public class CyclesTheme {
         }
 
         System.out.println("\n6. Вывод геометрических фигур");
-        int charactersInLine = 1;
-        int starsInLine = 10;
+        int minCharactersInLine = 1;
+        int maxCharactersInLine = 10;
         for (int i = 1; i < 51; i++) {
             System.out.print("*");
-            charactersInLine++;
-            if (charactersInLine > starsInLine) {
+            minCharactersInLine++;
+            if (minCharactersInLine > maxCharactersInLine) {
                 System.out.println();
-                charactersInLine = 1;
+                minCharactersInLine = 1;
             }
         }
 
         System.out.println();
-        int numbersInLine = 5;
-        while (charactersInLine <= numbersInLine) {
+        maxCharactersInLine = 5;
+        while (minCharactersInLine <= maxCharactersInLine) {
             System.out.print("#");
-            charactersInLine++;
-            if (charactersInLine > numbersInLine) {
+            minCharactersInLine++;
+            if (minCharactersInLine > maxCharactersInLine) {
                 System.out.println();
-                charactersInLine = 1;
-                numbersInLine--;
+                minCharactersInLine = 1;
+                maxCharactersInLine--;
             }        
         }
 
@@ -142,30 +142,46 @@ public class CyclesTheme {
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
-        String palindromNumber = "1234321";
-        boolean isPalindrom = true;
-        for (int i = 0; i < palindromNumber.length() / 2; i++) {
-            if (palindromNumber.charAt(i) != palindromNumber.charAt(palindromNumber.length() - i - 1)) {
-                isPalindrom = false;
-            }
+        int palindromNumber = 1234321;
+        int reminder = 0;
+        int reversNumber = 0;
+        int originalNum = palindromNumber;
+        while (palindromNumber != 0) {
+            reminder = palindromNumber % 10;
+            reversNumber = reversNumber * 10 + reminder;
+            palindromNumber /= 10;
         }
-        if (isPalindrom) {
-            System.out.println("Число " + palindromNumber + "- палиндром");
+        if (originalNum == reversNumber) {
+            System.out.println("Число " + originalNum + " - палиндром");
         } else {
-            System.out.println("Число " + palindromNumber + "- не палиндром");
+            System.out.println("Число " + originalNum + " - не палиндром");
         }
-
         System.out.println("\n9. Проверка, является ли число счастливым");
         int luckyNumber = 123321;
-        int firsDigit = (luckyNumber / 100000) % 10;
-        int secondDigit = (luckyNumber / 10000) % 10;
-        int thirdDigit = (luckyNumber / 1000) % 10;
-        int fourDigit = (luckyNumber / 100) % 10;
-        int fiveDigit = (luckyNumber / 10) % 10;
-        int sixDigit = luckyNumber % 10;
+        int firsDigit = 0;
+        int secondDigit = 0;
+        int thirdDigit = 0;
+        int fourDigit = 0;
+        int fiveDigit = 0;
+        int sixDigit = 0;
+        for (int i = 0; i < 6; i++) {
+            int digit = luckyNumber / (int) Math.pow(10, i) % 10;
+            if (i == 0) {
+                firsDigit = digit; 
+            } else if (i == 1) {
+                secondDigit = digit;
+            } else if (i == 2) {
+                thirdDigit = digit;
+            } else if (i == 3) {
+                fourDigit = digit;
+            } else if (i == 4) {
+                fiveDigit = digit;
+            } else {
+                sixDigit = digit;
+            }
+        }
         int firstSum = firsDigit + secondDigit + thirdDigit;
         int secondSum = fourDigit + fiveDigit + sixDigit;
-        System.out.println(firsDigit + " " + secondDigit + " " + thirdDigit);
         if (firstSum == secondSum) {
             System.out.printf("Число %d - счастливое%nСумма цифр %d%d%d = %d%nСумма %d%d%d = %d", 
                     luckyNumber, firsDigit, secondDigit, thirdDigit, firstSum, fourDigit, fiveDigit,
@@ -176,10 +192,10 @@ public class CyclesTheme {
                     sixDigit, secondSum);
         }
 
-        System.out.println("\n10. Вывод таблицы умножения Пифагора");
+        System.out.println("\n\n10. Вывод таблицы умножения Пифагора");
         for (int i = 1; i < 10; i++) {
             if (i == 2) {
-                for (int k = 1; k < 30; k++) {
+                for (int j = 1; j < 30; j++) {
                     System.out.print("_");
                 }
                 System.out.println();
@@ -193,4 +209,4 @@ public class CyclesTheme {
             System.out.println();
         }
     }
-}
+}   
