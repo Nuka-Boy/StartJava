@@ -10,22 +10,22 @@ public class Calculator {
         System.out.println("Введите одну операцию из  +, -, *, /, ^, %");
         char operation = scanner.next().charAt(0);
         scanner.close();
-        int answerDigit = 1;
+        int result = 1;
         if (operation == '+') {
-            answerDigit = firstNumber + secondNumber;
+            result = firstNumber + secondNumber;
         } else if (operation == '-') {
-            answerDigit = firstNumber - secondNumber;
+            result = firstNumber - secondNumber;
         } else if (operation == '*') {
-            answerDigit = firstNumber * secondNumber;
+            result = firstNumber * secondNumber;
         } else if (operation == '/') {
-            answerDigit = firstNumber / secondNumber;
+            result = firstNumber / secondNumber;
         } else if (operation == '%') {
-            answerDigit = firstNumber % secondNumber;
+            result = firstNumber % secondNumber;
         } else if (operation == '^') {
             for (int i = 0; i < secondNumber; i++) {
-                answerDigit *= firstNumber;
+                result *= firstNumber;
             }
         }
-        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + answerDigit);
+        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
     }
 }
