@@ -112,8 +112,8 @@ public class CyclesTheme {
 
         System.out.println();
         int maxWidth = 3;
-        int counterLines = 2 * maxWidth - 1;
-        int amountLines = 1;
+        int linesCounter = 2 * maxWidth - 1;
+        int linesAmount = 1;
         int addition = 1;
         int width = 1;
         do {
@@ -122,11 +122,11 @@ public class CyclesTheme {
                 System.out.print("$");
             } while (++i < width);
             System.out.println();
-            if (amountLines == maxWidth) {
+            if (linesAmount == maxWidth) {
                 addition = -1; 
             }
             width += addition;
-        } while (amountLines++ < counterLines);
+        } while (linesAmount++ < linesCounter);
 
         System.out.println("\n7. Вывод ASCII-символов");
         System.out.println("   DECIMAL   CHARACTER   DESCRIPTION");
@@ -145,9 +145,8 @@ public class CyclesTheme {
         int palindromeNumber = 1234321;
         int reverseNumber = 0;
         originalNumber = palindromeNumber;
-        while (palindromeNumber != 0) {
-            int digit = 0;
-            digit = palindromeNumber % 10;
+        while (palindromeNumber > 0) {
+            int digit = palindromeNumber % 10;
             reverseNumber = reverseNumber * 10 + digit;
             palindromeNumber /= 10;
         }

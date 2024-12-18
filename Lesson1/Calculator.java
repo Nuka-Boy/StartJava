@@ -4,7 +4,7 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите первое число: ");
-        final int firstNumber = scanner.nextInt();
+        int firstNumber = scanner.nextInt();
         System.out.println("Введите второе число: ");
         int secondNumber = scanner.nextInt();
         System.out.println("Введите одну операцию из  +, -, *, /, ^, %");
