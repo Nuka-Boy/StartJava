@@ -8,21 +8,16 @@ public class GuessNumber {
         System.out.println("Введите число: ");
         int randomNumber = random.nextInt(1, 100);
         int guessNumber = scanner.nextInt();
-        boolean isGuessed = true;
-        while (isGuessed) {
-            if (guessNumber == randomNumber) {  
-                isGuessed = false;
+        while (guessNumber != randomNumber) {  
+            if (guessNumber > randomNumber) {
+                System.out.print(guessNumber + " больше того, что загадал компьютер" + 
+                        "\nПопробуйте ещё: ");    
             } else {
-                if (guessNumber > randomNumber) {
-                    System.out.println(guessNumber + " больше того, что загадал компьютер");
-                    System.out.println("Попробуйте ещё: ");
-                } else {
-                    System.out.println(guessNumber + " меньше того, что загадал компьютер");
-                    System.out.println("Попробуйте ещё: "); 
-                }
-                guessNumber = scanner.nextInt();
-            }   
-        } 
+                System.out.print(guessNumber + " меньше того, что загадал компьютер" + 
+                        "\nПопробуйте ещё: "); 
+            }
+            guessNumber = scanner.nextInt();   
+        }
         System.out.println("Вы победили!");
     }
 }
