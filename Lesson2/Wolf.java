@@ -1,9 +1,9 @@
 public class Wolf {
     private String gender;
-    private String nickName;
+    private String nickname;
     private float weight;
     private int age;
-    private String coloring;
+    private String color;
 
     public String getGender() {
         return gender;
@@ -17,15 +17,15 @@ public class Wolf {
         }
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    void setNickName(String nickName) {
-        if (nickName == "") {
+    void setNickname(String nickname) {
+        if (nickname == "") {
             System.out.println("Пустая строка");
         } else {
-            this.nickName = nickName;
+            this.nickname = nickname;
         }
     }
 
@@ -53,12 +53,12 @@ public class Wolf {
         }
     }
 
-    public String getColoring() {
-        return coloring;
+    public String getColor() {
+        return color;
     }
 
-    void setColoring(String coloring) {
-        this.coloring = coloring;
+    void setColor(String color) {
+        this.color = color;
     }
     
     public void walk() {
