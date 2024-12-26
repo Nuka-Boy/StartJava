@@ -7,53 +7,41 @@ public class Calculator {
         this.firstNumber = firstNumber;
     }
 
-    public double getFirstNumber() {
-        return firstNumber;
-    }
-
     public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
-    }
-
-    public double getSecondNumber() {
-        return secondNumber;
     }
 
     public void setOperation(char operation) {
         this.operation = operation;
     }
 
-    public char getOperation() {
-        return operation;
-    }
-
-    public double getCalculatedResult() {
+    public double calculate() {
         double result = 0;
-        switch (getOperation()) {
+        switch (operation) {
             case '+':
-                result = getFirstNumber() + getSecondNumber();
+                result = firstNumber + secondNumber;
                 break;
             case '-':
-                result = getFirstNumber() - getSecondNumber();
+                result = firstNumber - secondNumber;
                 break;
             case '*':
-                result = getFirstNumber() * getSecondNumber();
+                result = firstNumber * secondNumber;
                 break;
             case '/':
-                if (getSecondNumber() == 0) {
+                if (secondNumber == 0) {
                     System.out.println("Ошибка: деление на ноль запрещено");
                 } else {
-                    result = getFirstNumber() / getSecondNumber();  
+                    result = firstNumber / secondNumber;  
                 }
                 break;
             case '%':
-                result = getFirstNumber() % getSecondNumber();
+                result = firstNumber % secondNumber;
                 break;
             case '^':
-                result = Math.pow(getFirstNumber(), getSecondNumber());
+                result = Math.pow(firstNumber, secondNumber);
                 break;
             default:
-                System.out.println("Ошибка: операция " + getOperation() + " не поддерживается");
+                System.out.println("Ошибка: операция " + operation + " не поддерживается");
                 result = 0;   
         }
         return result; 
