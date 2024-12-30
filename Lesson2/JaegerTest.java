@@ -1,7 +1,7 @@
 public class JaegerTest {
     public static void main(String[] args) {
         Jaeger jaegerOne = new Jaeger();
-        Jaeger jaegerTwo = new Jaeger("CoyoteTango");
+        final Jaeger jaegerTwo = new Jaeger("CoyoteTango", 85.34, 2.312, 7, 4);
 
         jaegerOne.setModelName("Striker Eureka");
         jaegerOne.setMark("Mark - 5");
