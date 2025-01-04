@@ -1,34 +1,48 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessNumber {
     private int randomNumber;
     private int number;
+    private Scanner scanner;
     private Random random;
 
-    public GuessNumber() {
-        random = new Random();
-        randomNumber = random.nextInt(1, 100); 
-    }
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public int getNumber() {
-        return number;
+    public GuessNumber(int randomNumber) {
+        this.scanner = new Scanner(System.in);
+        this.random = new Random();
+        this.randomNumber = randomNumber;
     }
 
     public int generateRandomNumber() {
-        return randomNumber;
+        return randomNumber = random.nextInt(100) + 1;
     }
 
-    public String checkGuess(int guess) {
-        if (guess == randomNumber) {
-            return "Вы угадали!";
-        } else if (guess > randomNumber) {
-            return guess + " больше загаданного числа.";
-        } else {
-            return guess + " меньше загаданного числа.";
+    public String makeGuess(String playerName) {
+        while (true) {
+            System.out.println("\nИгрок " + playerName + ", введите число от 1 до 100: ");
+            int inputNumber = scanner.nextInt();
+            this.number = inputNumber;
+            String result = checkGuess();
+            if (result.equals("Вы угадали!")) {
+                return result;
+            } else {
+                System.out.println(result + " Ход следующего игрока");
+                return result;
+            }
         }
+    }
+ 
+    private String checkGuess() {
+        if (number > randomNumber) {
+            return "Введенное число больше загаданного";
+        } else if (number < randomNumber) {
+            return "Введенное число меньше загаданного";
+        } else {
+            return "Вы угадали!";
+        }
+    }
+
+    public void closeScanner() {
+        scanner.close();
     }   
 }
-

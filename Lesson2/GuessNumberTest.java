@@ -6,8 +6,6 @@ public class GuessNumberTest {
         final Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         String inputName = "";
-        final GuessNumber firstPlayerGuess = new GuessNumber();
-        final GuessNumber secondPlayerGuess = new GuessNumber();
 
         System.out.println("Введите имя первого игрока: ");
         inputName = scanner.nextLine();
@@ -16,39 +14,32 @@ public class GuessNumberTest {
         inputName = scanner.nextLine();
         Player secondPlayer = new Player(inputName);
         String exitInput = "";
+        GuessNumber game = new GuessNumber(0);
 
         while (!exitInput.equals("no")) {
-            int randomNumber = firstPlayerGuess.generateRandomNumber();
-            firstPlayerGuess.setNumber(0);
-            secondPlayerGuess.setNumber(0);
+            int randomNumber = game.generateRandomNumber();
+            GuessNumber firstPlayerGuess = new GuessNumber(randomNumber);
+            GuessNumber secondPlayerGuess = new GuessNumber(randomNumber);
+            String result;
+
             while (true) {
-                System.out.println("\nигрок " + firstPlayer.getName() + ", введите число от 1 до 100: ");
-                int inputNumber = scanner.nextInt();
-                firstPlayerGuess.setNumber(inputNumber);
-                String result = firstPlayerGuess.checkGuess(inputNumber);
+                result = firstPlayerGuess.makeGuess(firstPlayer.getName());
                 if (result.equals("Вы угадали!")) {
                     System.out.println("Игрок " + firstPlayer.getName() + " победил!");
                     break;
-                } else {
-                    System.out.println(result + " Ход следующего игрока");
                 }
-                System.out.println("\nигрок " + secondPlayer.getName() + ", введите число от 1 до 100: ");
-                inputNumber = scanner.nextInt();
-                secondPlayerGuess.setNumber(inputNumber);
-                result = secondPlayerGuess.checkGuess(inputNumber);
+                result = secondPlayerGuess.makeGuess(secondPlayer.getName());
                 if (result.equals("Вы угадали!")) {
                     System.out.println("Игрок " + secondPlayer.getName() + " победил!");
                     break;
-                } else {
-                    System.out.println(result + " Ход следующего игрока");
                 }
             }
             do {
-                scanner.nextLine();
                 System.out.println("\nХотите продолжить вычисления? [yes/no]: ");
                 exitInput = scanner.nextLine();
-            } while (!exitInput.equals("yes") && !exitInput.equals("no"));
+            } while (!exitInput.equals("yes") && !exitInput.equals("no"));     
         }
+        game.closeScanner();
         scanner.close();
     }
 }
