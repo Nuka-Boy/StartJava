@@ -1,20 +1,25 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
     private int randomNumber;
     private int number;
     private Scanner scanner;
-    private Random random;
-
-    public GuessNumber(int randomNumber) {
+    private Player player1;
+    private Player player2;
+    
+    public GuessNumber(int randomNumber, Player player1, Player player2) {
         this.scanner = new Scanner(System.in);
-        this.random = new Random();
         this.randomNumber = randomNumber;
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    public GuessNumber() {
+        this.scanner = new Scanner(System.in);
     }
 
     public int generateRandomNumber() {
-        return randomNumber = random.nextInt(100) + 1;
+        return randomNumber = (int) (Math.random() * 100) + 1;
     }
 
     public String makeGuess(String playerName) {

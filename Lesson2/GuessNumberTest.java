@@ -14,12 +14,12 @@ public class GuessNumberTest {
         inputName = scanner.nextLine();
         Player secondPlayer = new Player(inputName);
         String exitInput = "";
-        GuessNumber game = new GuessNumber(0);
+        GuessNumber game = new GuessNumber();
 
         while (!exitInput.equals("no")) {
             int randomNumber = game.generateRandomNumber();
-            GuessNumber firstPlayerGuess = new GuessNumber(randomNumber);
-            GuessNumber secondPlayerGuess = new GuessNumber(randomNumber);
+            GuessNumber firstPlayerGuess = new GuessNumber(randomNumber, firstPlayer, secondPlayer);
+            GuessNumber secondPlayerGuess = new GuessNumber(randomNumber, firstPlayer, secondPlayer);
             String result;
 
             while (true) {
