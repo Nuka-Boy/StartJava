@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class GuessNumber {
     private int randomNumber;
-    private int number;
     private Scanner scanner;
     private Player player1;
     private Player player2;
@@ -22,22 +21,57 @@ public class GuessNumber {
         return randomNumber = (int) (Math.random() * 100) + 1;
     }
 
-    public String makeGuess(String playerName) {
+    public String startGame() {
+        int number;
+        String result;
+        boolean firstPlayerTurn = true;
+
         while (true) {
-            System.out.println("\nИгрок " + playerName + ", введите число от 1 до 100: ");
-            int inputNumber = scanner.nextInt();
-            this.number = inputNumber;
-            String result = checkGuess();
-            if (result.equals("Вы угадали!")) {
-                return result;
+            if (firstPlayerTurn) {
+                System.out.println("\nИгрок " + player1.getName() + ", введите число от 1 до 100: "); 
+                if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                    if (number >= 1 && number <= 100) {
+                        result = checkGuess(number, randomNumber);
+                        if (result.equals("Вы угадали!")) {
+                            return "Игрок " + player1.getName() + " победил!";
+                        } else {
+                            System.out.println(result + " Ход следующего игрока");
+                            firstPlayerTurn = false;
+                        }
+                    } else {
+                        System.out.println("Некорректное число. Должно быть от 1 до 100");
+                        scanner.next();
+                    }
+                } else {
+                    System.out.println("Некорректный ввод. Введите целое число");
+                    scanner.next();
+                }
             } else {
-                System.out.println(result + " Ход следующего игрока");
-                return result;
+                System.out.println("\nИгрок " + player2.getName() + ", введите число от 1 до 100");
+                if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                    if (number >= 1 && number <= 100) {
+                        result = checkGuess(number, randomNumber);
+                        if (result.equals("Вы угадали!")) {
+                            return "Игрок " + player2.getName() + " победил!";
+                        } else {
+                            System.out.println(result + " Ход следующего игрока");
+                            firstPlayerTurn = true;
+                        }
+                    } else {
+                        System.out.println("Некорректное число. Должно быть от 1 до 100");
+                        scanner.next();
+                    }
+                } else {
+                    System.out.println("Некорректный ввод. Введите целое число");
+                    scanner.next();
+                }
             }
         }
     }
  
-    private String checkGuess() {
+    private String checkGuess(int number, int randomNumber) {
         if (number > randomNumber) {
             return "Введенное число больше загаданного";
         } else if (number < randomNumber) {
