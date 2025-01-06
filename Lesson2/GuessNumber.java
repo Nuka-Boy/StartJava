@@ -6,9 +6,8 @@ public class GuessNumber {
     private Player player1;
     private Player player2;
     
-    public GuessNumber(int randomNumber, Player player1, Player player2) {
+    public GuessNumber(Player player1, Player player2) {
         this.scanner = new Scanner(System.in);
-        this.randomNumber = randomNumber;
         this.player1 = player1;
         this.player2 = player2;
     }
@@ -17,60 +16,44 @@ public class GuessNumber {
         this.scanner = new Scanner(System.in);
     }
 
-    public int generateRandomNumber() {
-        return randomNumber = (int) (Math.random() * 100) + 1;
-    }
-
-    public String startGame() {
+    public String start() {
         int number;
         String result;
-        boolean firstPlayerTurn = true;
+        Player currentPlayer;
+        randomNumber = (int) (Math.random() * 100) + 1;
 
         while (true) {
-            if (firstPlayerTurn) {
-                System.out.println("\nИгрок " + player1.getName() + ", введите число от 1 до 100: "); 
-                if (scanner.hasNextInt()) {
-                number = scanner.nextInt();
-                    if (number >= 1 && number <= 100) {
-                        result = checkGuess(number, randomNumber);
-                        if (result.equals("Вы угадали!")) {
-                            return "Игрок " + player1.getName() + " победил!";
-                        } else {
-                            System.out.println(result + " Ход следующего игрока");
-                            firstPlayerTurn = false;
-                        }
-                    } else {
-                        System.out.println("Некорректное число. Должно быть от 1 до 100");
-                        scanner.next();
-                    }
-                } else {
+            for (int i = 0; i < 2; i++) {
+                currentPlayer = (i == 0) ? player1 : player2;
+                System.out.println("\nИгрок " + currentPlayer.getName() + ", введите число от 1 до 100: ");
+
+                if (!scanner.hasNextInt()) {
                     System.out.println("Некорректный ввод. Введите целое число");
                     scanner.next();
+                    continue;
                 }
-            } else {
-                System.out.println("\nИгрок " + player2.getName() + ", введите число от 1 до 100");
-                if (scanner.hasNextInt()) {
                 number = scanner.nextInt();
-                    if (number >= 1 && number <= 100) {
-                        result = checkGuess(number, randomNumber);
-                        if (result.equals("Вы угадали!")) {
-                            return "Игрок " + player2.getName() + " победил!";
-                        } else {
-                            System.out.println(result + " Ход следующего игрока");
-                            firstPlayerTurn = true;
-                        }
-                    } else {
-                        System.out.println("Некорректное число. Должно быть от 1 до 100");
-                        scanner.next();
-                    }
-                } else {
-                    System.out.println("Некорректный ввод. Введите целое число");
+
+                if (number < 1 || number > 100) {
+                    System.out.println("Некорректное число. Должно быть от 1 до 100");
                     scanner.next();
+                    continue;
+                }
+
+                result = checkGuess(number, randomNumber);
+                if (result.equals("Вы угадали!")) {
+                    return "Игрок " + currentPlayer.getName() + " победил!";
+                } else {
+                    System.out.println(result + " Ход следующего игрока");
                 }
             }
         }
     }
  
+    public void closeScanner() {
+        scanner.close();
+    } 
+
     private String checkGuess(int number, int randomNumber) {
         if (number > randomNumber) {
             return "Введенное число больше загаданного";
@@ -79,9 +62,5 @@ public class GuessNumber {
         } else {
             return "Вы угадали!";
         }
-    }
-
-    public void closeScanner() {
-        scanner.close();
-    }   
+    }  
 }
