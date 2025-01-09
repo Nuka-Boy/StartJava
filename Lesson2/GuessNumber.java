@@ -14,10 +14,10 @@ public class GuessNumber {
 
     public void start() {
         scanner = new Scanner(System.in);
-        int number;
         Player currentPlayer = player1;
       
         while (true) {
+            int number;
             String resultGuess;
             number = getInputPlayer(currentPlayer.getName());
             resultGuess = checkGuess(number);
