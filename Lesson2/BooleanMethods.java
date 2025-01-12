@@ -13,53 +13,53 @@ public class BooleanMethods {
     }
 
     public boolean isProgramRunning() {
-        System.out.print("\n" + MethodNameUtil.getMethodName() + " Программа выполняется ? -> ");
+        System.out.print("\n" + MethodNameUtil.getName() + " -> Программа выполняется ? ");
         return true;
     }
 
     public boolean isFileDeleted() {
-        System.out.print(MethodNameUtil.getMethodName() + " Файл удален ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Файл удален ? ");
         return true;
     }
 
     public boolean hasUniqueDigit() {
-        System.out.print(MethodNameUtil.getMethodName() + " Содержит уникальную цифру ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Содержит уникальную цифру ? ");
         return false;
     }
 
     public boolean isInputLetter() {
-        System.out.print(MethodNameUtil.getMethodName() + " Пользователь ввел букву ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Пользователь ввел букву ? ");
         return true;
     }
 
     public boolean hasEqualDigits() {
-        System.out.print(MethodNameUtil.getMethodName() + " Есть ли в числах равные цифры ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Есть ли в числах равные цифры ? ");
         return true;
     }
 
     public boolean hasAttemptsLeft() {
-        System.out.print(MethodNameUtil.getMethodName() + " Попытки остались ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Попытки остались ? ");
         return false;
     }
 
     public boolean isEmptyString() {
-        System.out.print(MethodNameUtil.getMethodName() + " Пустая строка ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Пустая строка ? ");
         return true;
     }
 
     public boolean isDiceEven() {
-        System.out.print(MethodNameUtil.getMethodName() + " Число четное ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Число четное ? ");
         return true;
     }
 
     public boolean isPathValid() {
-        System.out.print(MethodNameUtil.getMethodName() + " Путь до файла действителен ? -> ");
+        System.out.print(MethodNameUtil.getName() + " -> Путь до файла действителен ? ");
         return true;
     }
 
     public boolean isFileExists() {
-        System.out.print(MethodNameUtil.getMethodName() + 
-                " Существует файл по указанному адресу ? -> ");
+        System.out.print(MethodNameUtil.getName() + 
+                " -> Существует файл по указанному адресу ? ");
         return true;
     }
 }
