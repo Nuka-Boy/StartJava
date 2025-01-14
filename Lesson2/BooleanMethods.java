@@ -1,64 +1,51 @@
 public class BooleanMethods {
-    public void executeAllMetods() {
-        System.out.println(isProgramRunning()); 
-        System.out.println(isFileDeleted()); 
-        System.out.println(hasUniqueDigit()); 
-        System.out.println(isInputLetter()); 
-        System.out.println(hasEqualDigits()); 
-        System.out.println(hasAttemptsLeft()); 
-        System.out.println(isEmptyString()); 
-        System.out.println(isDiceEven()); 
-        System.out.println(isPathValid()); 
-        System.out.println(isFileExists()); 
-    }
-
     public boolean isProgramRunning() {
-        System.out.print("\n" + MethodNameUtil.getName() + " -> Программа выполняется ? ");
+        System.out.print("\n" + MethodNameUtil.getCurrent() + " -> Программа выполняется ? ");
         return true;
     }
 
     public boolean isFileDeleted() {
-        System.out.print(MethodNameUtil.getName() + " -> Файл удален ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Файл удален ? ");
         return true;
     }
 
     public boolean hasUniqueDigit() {
-        System.out.print(MethodNameUtil.getName() + " -> Содержит уникальную цифру ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Содержит уникальную цифру ? ");
         return false;
     }
 
     public boolean isInputLetter() {
-        System.out.print(MethodNameUtil.getName() + " -> Пользователь ввел букву ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Пользователь ввел букву ? ");
         return true;
     }
 
     public boolean hasEqualDigits() {
-        System.out.print(MethodNameUtil.getName() + " -> Есть ли в числах равные цифры ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Есть ли в числах равные цифры ? ");
         return true;
     }
 
     public boolean hasAttemptsLeft() {
-        System.out.print(MethodNameUtil.getName() + " -> Попытки остались ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Попытки остались ? ");
         return false;
     }
 
     public boolean isEmptyString() {
-        System.out.print(MethodNameUtil.getName() + " -> Пустая строка ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Пустая строка ? ");
         return true;
     }
 
     public boolean isDiceEven() {
-        System.out.print(MethodNameUtil.getName() + " -> Число четное ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Число четное ? ");
         return true;
     }
 
     public boolean isPathValid() {
-        System.out.print(MethodNameUtil.getName() + " -> Путь до файла действителен ? ");
+        System.out.print(MethodNameUtil.getCurrent() + " -> Путь до файла действителен ? ");
         return true;
     }
 
     public boolean isFileExists() {
-        System.out.print(MethodNameUtil.getName() + 
+        System.out.print(MethodNameUtil.getCurrent() + 
                 " -> Существует файл по указанному адресу ? ");
         return true;
     }
