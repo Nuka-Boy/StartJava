@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.method;
+package com.startjava.lesson_2_3_4.method;
 
 public class MethodsTest {
     public static void main(String[] args) {
