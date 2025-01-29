@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.array;
 
-import java.util.Arrays;
-
 public class Factorial {
     public static void main(String[] args) {
         showFactorial();
@@ -13,12 +11,14 @@ public class Factorial {
 
     public static void showFactorial(int... args) {
         for (int number : args) {
-            System.out.println((number < 0) ? "Ошибка: факториал " + number + "! не определен"
-                    : calculateFactorial(number));
+            System.out.println(calculateFactorial(number));
         }
     }
 
     public static String calculateFactorial(int number) {
+        if (number < 0) {
+            return "Ошибка: факториал " + number + "! не определен";
+        }
         if (number == 0) {
             return "0! = 1";
         }
