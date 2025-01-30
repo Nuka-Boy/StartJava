@@ -10,30 +10,37 @@ public class Factorial {
     }
 
     public static void showFactorial(int... args) {
-        for (int number : args) {
-            System.out.println(calculateFactorial(number));
+        int[] result = calculateFactorial(args);
+        for (int i = 0; i < args.length; i++) {
+            if (result[i] != -1) {
+                System.out.println(args[i] + "!= " + result[i]);
+            }
         }
     }
 
-    public static String calculateFactorial(int number) {
-        if (number < 0) {
-            return "Ошибка: факториал " + number + "! не определен";
-        }
-        if (number == 0) {
-            return "0! = 1";
-        }
-        long result = 1;
-        String factorialString = number + "! = ";
-        for (int i = 1; i <= number; i++) {
-            result *= i;
-            factorialString += i;
-            if (i < number) {
-                factorialString += "*";
+    public static int[] calculateFactorial(int... args) {
+        int[] results = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            int number = args[i];
+            if (number < 0) {
+                System.out.println("Ошибка: факториал " + number + "! не определен");
+                results[i] = -1;
             } else {
-                factorialString += " = " + result;
+                results[i] = factorial(number);
             }
         }
-        return factorialString;
+        return results;
+    }
+
+    private static int factorial(int number) {
+        if (number == 0) {
+            return 1;
+        }
+        int result = 1;
+        for (int i = 1; i <= number; i++) {
+            result *= i;
+        }
+        return result;
     }
 }
 
